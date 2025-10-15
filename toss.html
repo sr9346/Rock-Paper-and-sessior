@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOSS</title>
+</head>
+<body>
+    <h1> Toss</h1>
+    <button onclick="
+         playGame('HEAD')">HEAD
+    </button>
+    <button onclick="
+        playGame('TAIL')">TAIL
+    </button>
+
+    <script>
+        function playGame(playerMove) {
+            const computerMove = pickComputerMove();
+            let result = '';
+            if (playerMove === computerMove) {
+                result = 'You tied';
+            } else if (
+                (playerMove === 'HEAD' && computerMove === 'HEAD') ||
+                (playerMove === 'TAIL' && computerMove === 'TAIL')
+            ) {
+                result = 'You win the toss';
+            } else {
+                result = 'You lose the toss';
+            }
+            alert(`You picked ${playerMove}, computer picked ${computerMove}, ${result}`);
+        }
+        function pickComputerMove() {
+            const random = Math.random();
+            let computerMove  = '';
+            if(random  > 0 && random < 1 / 2) {
+                computerMove = 'HEAD';
+             } else if (random >= 1 / 2 && random < 1) {
+                computerMove = 'TAIL';
+            }
+            return computerMove;
+
+        }
+    </script>
+    
+</body>
+</html>
