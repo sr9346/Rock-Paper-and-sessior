@@ -19,6 +19,7 @@
         playGame('Scisser');
         ">Sessior
     </button>
+    <p class = "score-display"></p>
     <button onclick="
         score.wins = 0;
         score.losses = 0;
@@ -33,6 +34,9 @@
             losses : 0,
             tiees : 0
         };
+        document.querySelector('.score-display').innerText =
+            `Wins: ${score.wins}, Losses: ${score.losses}, Tiees: ${score.tiees}`;
+            
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
             let result = '';
